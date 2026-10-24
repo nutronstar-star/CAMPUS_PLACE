@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 320" width="100%" height="100%" aria-label="CampusPlace Logo">
+  <defs>
+    <linearGradient id="lightBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="60%" stop-color="#F8FAFC" />
+      <stop offset="100%" stop-color="#F1F5F9" />
+    </linearGradient>
+    <linearGradient id="blackCapLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2D3748" />
+      <stop offset="50%" stop-color="#1A202C" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+    <linearGradient id="blackCapRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A202C" />
+      <stop offset="50%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#090D16" />
+    </linearGradient>
+    <linearGradient id="pinBodyLight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0284C7" />
+      <stop offset="100%" stop-color="#0369A1" />
+    </linearGradient>
+    <linearGradient id="arrowGreenGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#059669" />
+      <stop offset="50%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#34D399" />
+    </linearGradient>
+    <linearGradient id="textPlaceLightGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284C7" />
+      <stop offset="60%" stop-color="#0EA5E9" />
+      <stop offset="100%" stop-color="#06B6D4" />
+    </linearGradient>
+    <linearGradient id="academicGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE047" />
+      <stop offset="45%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+    <linearGradient id="orbitLineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284C7" stop-opacity="0.15" />
+      <stop offset="50%" stop-color="#0284C7" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#10B981" stop-opacity="0.15" />
+    </linearGradient>
+    <filter id="lightCardShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#0F172A" flood-opacity="0.05" />
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.03" />
+    </filter>
+    <filter id="markSoftShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#0F172A" flood-opacity="0.12" />
+    </filter>
+  </defs>
+
+  <rect x="10" y="10" width="900" height="300" rx="22" fill="url(#lightBgGrad)" stroke="#E2E8F0" stroke-width="1.5" filter="url(#lightCardShadow)" />
+  <circle cx="165" cy="170" r="80" fill="#0284C7" opacity="0.08" />
+  <circle cx="165" cy="195" r="45" fill="#10B981" opacity="0.10" />
+
+  <g transform="translate(10, 0)">
+    <ellipse cx="155" cy="165" rx="98" ry="76" fill="none" stroke="url(#orbitLineGrad)" stroke-width="1.5" stroke-dasharray="4 6" />
+    <circle cx="155" cy="89" r="3.5" fill="#0284C7" />
+    <circle cx="68" cy="192" r="4" fill="#0284C7" />
+    <circle cx="68" cy="192" r="7.5" fill="none" stroke="#0284C7" stroke-opacity="0.3" stroke-width="1" />
+    <circle cx="242" cy="192" r="4" fill="#10B981" />
+    <circle cx="242" cy="192" r="7.5" fill="none" stroke="#10B981" stroke-opacity="0.3" stroke-width="1" />
+
+    <path d="M 155 125 C 193 125, 219 152, 219 184 C 219 214, 185 246, 155 266 C 125 246, 91 214, 91 184 C 91 152, 117 125, 155 125 Z" fill="url(#pinBodyLight)" filter="url(#markSoftShadow)" />
+    <path d="M 155 137 C 180 137, 202 157, 202 183 C 202 206, 175 231, 155 246 C 135 231, 108 206, 108 183 C 108 157, 130 137, 155 137 Z" fill="#FFFFFF" />
+    <path d="M 155 146 L 182 178 L 168 178 L 168 228 L 142 228 L 142 178 L 128 178 Z" fill="url(#arrowGreenGrad)" filter="url(#markSoftShadow)" />
+    <line x1="148" y1="202" x2="162" y2="202" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" />
+    <line x1="148" y1="216" x2="162" y2="216" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" />
+
+    <path d="M 124 104 C 124 116, 140 125, 155 125 C 170 125, 186 116, 186 104 L 186 112 C 186 124, 170 133, 155 133 C 140 133, 124 124, 124 112 Z" fill="#0F172A" stroke="#1E293B" stroke-width="1" />
+    <path d="M 155 64 L 82 98 L 155 122 Z" fill="url(#blackCapLeft)" filter="url(#markSoftShadow)" />
+    <path d="M 155 64 L 228 98 L 155 122 Z" fill="url(#blackCapRight)" />
+    <line x1="155" y1="64" x2="155" y2="122" stroke="#475569" stroke-width="0.8" opacity="0.6" />
+
+    <circle cx="155" cy="93" r="4.5" fill="url(#academicGoldGrad)" />
+    <path d="M 155 93 C 184 96, 218 108, 222 130 L 222 152" fill="none" stroke="url(#academicGoldGrad)" stroke-width="2.5" stroke-linecap="round" />
+    <polygon points="218,152 226,152 229,168 215,168" fill="url(#academicGoldGrad)" />
+  </g>
+
+  <g transform="translate(305, 0)">
+    <g transform="translate(0, 68)">
+      <rect x="0" y="0" width="228" height="26" rx="13" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1" />
+      <circle cx="14" cy="13" r="4" fill="#10B981" />
+      <text x="26" y="17" fill="#475569" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="9.5" font-weight="700" letter-spacing="1.6">NATIONAL RECRUITMENT PORTAL</text>
+    </g>
+    <text x="0" y="152" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif" font-size="58" font-weight="800" letter-spacing="-1">
+      <tspan fill="#0F172A">Campus</tspan><tspan fill="url(#textPlaceLightGrad)">Place</tspan>
+    </text>
+    <circle cx="396" cy="120" r="5" fill="#10B981" />
+    <text x="2" y="184" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" letter-spacing="2.8">NATIONAL PLACEMENT MANAGEMENT SYSTEM</text>
+    <line x1="2" y1="202" x2="520" y2="202" stroke="#E2E8F0" stroke-width="1.5" />
+    <line x1="2" y1="202" x2="72" y2="202" stroke="#0284C7" stroke-width="2.5" stroke-linecap="round" />
+    <g transform="translate(2, 222)">
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="128" height="24" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+        <circle cx="10" cy="12" r="3" fill="#0284C7" />
+        <text x="18" y="16" fill="#475569" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="10" font-weight="600">All India Colleges</text>
+      </g>
+      <g transform="translate(136, 0)">
+        <rect x="0" y="0" width="138" height="24" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+        <circle cx="10" cy="12" r="3" fill="#0D9488" />
+        <text x="18" y="16" fill="#475569" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="10" font-weight="600">Direct Recruiter Hub</text>
+      </g>
+      <g transform="translate(282, 0)">
+        <rect x="0" y="0" width="126" height="24" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+        <circle cx="10" cy="12" r="3" fill="#F59E0B" />
+        <text x="18" y="16" fill="#475569" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="10" font-weight="600">DPDP Compliant</text>
+      </g>
+    </g>
+  </g>
+</svg>

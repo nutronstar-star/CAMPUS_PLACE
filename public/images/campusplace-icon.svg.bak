@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" width="100%" height="100%" aria-label="CampusPlace">
+  <defs>
+    <linearGradient id="ic-pin" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#1E3A8A"/>
+    </linearGradient>
+    <linearGradient id="ic-cap" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7DD3FC"/>
+      <stop offset="100%" stop-color="#0284C7"/>
+    </linearGradient>
+    <linearGradient id="ic-arrow" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#34D399"/>
+    </linearGradient>
+    <linearGradient id="ic-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <filter id="ic-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0F172A" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <circle cx="100" cy="26" r="2.5" fill="#0284C7"/>
+  <circle cx="20" cy="130" r="3" fill="#0284C7"/>
+  <circle cx="20" cy="130" r="6" fill="none" stroke="#0284C7" stroke-width="0.8" opacity="0.4"/>
+  <circle cx="180" cy="130" r="3" fill="#10B981"/>
+  <circle cx="180" cy="130" r="6" fill="none" stroke="#10B981" stroke-width="0.8" opacity="0.4"/>
+
+  <path d="M100 55 C 148 55, 178 88, 178 128 C 178 168, 132 195, 100 212 C 68 195, 22 168, 22 128 C 22 88, 52 55, 100 55 Z"
+        fill="url(#ic-pin)" stroke="#BAE6FD" stroke-width="1.5" filter="url(#ic-shadow)"/>
+
+  <path d="M100 88 L 134 128 L 114 128 L 114 174 L 86 174 L 86 128 L 66 128 Z" fill="url(#ic-arrow)"/>
+  <line x1="92" y1="148" x2="108" y2="148" stroke="#064E3B" stroke-width="2" stroke-linecap="round"/>
+  <line x1="92" y1="160" x2="108" y2="160" stroke="#064E3B" stroke-width="2" stroke-linecap="round"/>
+
+  <path d="M100 10 L 36 42 L 100 64 L 164 42 Z" fill="url(#ic-cap)" stroke="#0284C7" stroke-width="0.8"/>
+  <path d="M70 48 L 70 60 C 70 68, 82 74, 100 74 C 118 74, 130 68, 130 60 L 130 48" fill="none" stroke="#0284C7" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="100" y1="10" x2="100" y2="64" stroke="#E0F2FE" stroke-width="0.6" opacity="0.7"/>
+
+  <circle cx="100" cy="32" r="3" fill="url(#ic-gold)"/>
+  <path d="M100 32 Q 132 38, 148 62 L 148 82" stroke="url(#ic-gold)" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <polygon points="144,82 152,82 155,93 141,93" fill="url(#ic-gold)"/>
+</svg>
