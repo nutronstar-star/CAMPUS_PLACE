@@ -16,5 +16,6 @@ class Application extends Model {
     public function student() { return $this->belongsTo(Student::class); }
     public function job() { return $this->belongsTo(Job::class); }
     public function college() { return $this->belongsTo(College::class); }
+    public function resume() { return $this->hasOne(ApplicationResume::class); }
     public function interviews() { return $this->hasMany(Interview::class); }
 }

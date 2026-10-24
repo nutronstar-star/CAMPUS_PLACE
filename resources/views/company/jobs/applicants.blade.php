@@ -18,7 +18,7 @@
                 <tr class="bg-gray-50 border-b text-sm text-gray-600 uppercase tracking-wider">
                     <th class="p-4 font-semibold">Student Name</th>
                     <th class="p-4 font-semibold">College / Dept</th>
-                    <th class="p-4 font-semibold">CGPA</th>
+                    <th class="p-4 font-semibold">CGPA</th>`r`n                    <th class="p-4 font-semibold">Resume</th>
                     <th class="p-4 font-semibold">Status</th>
                     <th class="p-4 font-semibold text-right">Actions</th>
                 </tr>
@@ -35,6 +35,15 @@
                         <div class="text-sm text-gray-500">{{ $app->student->department->name }}</div>
                     </td>
                     <td class="p-4 text-gray-700 font-bold">{{ $app->student->cgpa }}</td>
+                    <td class="p-4">
+                        @if($app->resume)
+                            <a href="{{ asset('storage/' . $app->resume->resume_url) }}" target="_blank" class="bg-slate-200 text-slate-800 px-3 py-1 rounded text-sm hover:bg-slate-300 transition inline-block">
+                                View PDF
+                            </a>
+                        @else
+                            <span class="text-xs text-gray-400 italic">Not uploaded</span>
+                        @endif
+                    </td>
                     <td class="p-4">
                         @if($app->status === 'applied')
                             <span class="px-3 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">Applied</span>

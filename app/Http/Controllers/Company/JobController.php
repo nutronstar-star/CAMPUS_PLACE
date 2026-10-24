@@ -69,7 +69,7 @@ class JobController extends Controller
     public function applicants(Job $job)
     {
         if ($job->company_id !== auth()->user()->companyProfile->id) { abort(403); }
-        $applications = $job->applications()->with(['student.user', 'student.college', 'student.department'])->latest()->paginate(15);
+        $applications = $job->applications()->with(['student.user', 'student.college', 'student.department', 'resume'])->latest()->paginate(15);
         return view('company.jobs.applicants', compact('job', 'applications'));
     }
 
