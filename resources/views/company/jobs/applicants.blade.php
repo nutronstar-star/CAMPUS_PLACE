@@ -80,7 +80,12 @@
                             </form>
                         @endif
 
-                        @if(in_array($app->status, ['applied', 'shortlisted', 'interview']))
+                        <button type="button" onclick="blacklistStudent('{{ $app->id }}', '{{ route('company.students.blacklist', $app) }}')" class="bg-gray-800 hover:bg-gray-900 text-white px-3 py-1 rounded text-sm transition">Blacklist</button>
+                        <form id="blacklist-form-{{ $app->id }}" action="{{ route('company.students.blacklist', $app) }}" method="POST" class="hidden">
+                            @csrf
+                            <input type="hidden" name="reason" id="reason-{{ $app->id }}">
+                        </form>
+                                                @if(in_array($app->status, ['applied', 'shortlisted', 'interview']))
                             <form action="{{ route('company.applications.status', $app) }}" method="POST" class="inline">
                                 @csrf
                                 <input type="hidden" name="status" value="rejected">
@@ -99,5 +104,18 @@
             </tbody>
         </table>
     </div>
+
+    <script>
+        function blacklistStudent(id, url) {
+            let reason = prompt("Enter the reason for blacklisting this student (min 10 characters):");
+            if (reason === null) return; // User cancelled
+            if (reason.trim().length < 10) {
+                alert("Reason must be at least 10 characters long.");
+                return;
+            }
+            document.getElementById('reason-' + id).value = reason;
+            document.getElementById('blacklist-form-' + id).submit();
+        }
+    </script>
 @endsection
 

@@ -92,6 +92,7 @@ Route::middleware(['auth', 'role:company'])->prefix('company')->name('company.')
     Route::post('/jobs', [CompanyJobController::class, 'store'])->name('jobs.store');
     Route::get('/jobs/{job}/applicants', [CompanyJobController::class, 'applicants'])->name('jobs.applicants');
     Route::post('/applications/{application}/status', [CompanyJobController::class, 'updateApplicationStatus'])->name('applications.status');
+    Route::post('/applications/{application}/blacklist', [CompanyJobController::class, 'blacklistStudent'])->name('students.blacklist');
     Route::get('/applications/{application}/interview', [CompanyInterviewController::class, 'create'])->name('interviews.create');
     Route::post('/applications/{application}/interview', [CompanyInterviewController::class, 'store'])->name('interviews.store');
     Route::post('/applications/{application}/offer', [CompanyInterviewController::class, 'releaseOffer'])->name('offers.release');

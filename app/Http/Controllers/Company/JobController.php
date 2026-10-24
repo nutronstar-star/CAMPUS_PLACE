@@ -88,4 +88,32 @@ class JobController extends Controller
 
         return back()->with('success', "Application marked as {$request->status}.");
     }
+
+    public function blacklistStudent(Request $request, Application $application)
+    {
+        // Security check
+        if ($application->job->company_id !== auth()->user()->companyProfile->id) { abort(403); }
+
+        $request->validate([
+            'reason' => 'required|string|min:10|max:500'
+        ]);
+
+        // Insert into blacklist_students
+        \DB::table('blacklist_students')->insert([
+            'student_id' => $application->student_id,
+            'company_id' => $application->job->company_id,
+            'reason' => $request->reason,
+            'blacklisted_by' => auth()->id(),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        // Auto-reject any active applications from this student to this company
+        Application::where('student_id', $application->student_id)
+            ->whereHas('job', function($q) {
+                $q->where('company_id', auth()->user()->companyProfile->id);
+            })->update(['status' => 'rejected']);
+
+        return back()->with('success', 'Student has been blacklisted and their applications rejected.');
+    }
 }
