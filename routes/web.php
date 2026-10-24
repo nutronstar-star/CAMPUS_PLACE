@@ -107,6 +107,8 @@ Route::middleware(['auth', 'role:college_admin'])->prefix('college')->name('coll
     Route::post('/students/{student}', [CollegeStudentController::class, 'update'])->name('students.update');
     Route::get('/blacklist', [CollegeBlacklistController::class, 'index'])->name('blacklist.index');
     Route::post('/blacklist', [CollegeBlacklistController::class, 'store'])->name('blacklist.store');
+    Route::get('/notifications/create', [\App\Http\Controllers\CollegeAdmin\NotificationController::class, 'create'])->name('notifications.create');
+    Route::post('/notifications', [\App\Http\Controllers\CollegeAdmin\NotificationController::class, 'store'])->name('notifications.store');
     Route::get('/reports', [CollegeReportController::class, 'index'])->name('reports.index');
     Route::get('/reports/export', [CollegeReportController::class, 'exportPlacements'])->name('reports.export');
     Route::get('/reports/export-departments', [CollegeReportController::class, 'exportDepartments'])->name('reports.export-departments');
