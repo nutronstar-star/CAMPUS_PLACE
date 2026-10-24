@@ -34,7 +34,25 @@
             
             <form action="{{ route('student.jobs.apply', $job) }}" method="POST" class="mt-4 pt-4 border-t border-gray-100">
                 @csrf
-                <button type="submit" class="w-full bg-slate-800 hover:bg-slate-900 text-white font-medium py-2 rounded shadow transition">Apply Now</button>
+                
+                @if($resumes->count() > 0)
+                    <div class="mb-3">
+                        <label class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1 block">Select Resume</label>
+                        <select name="resume_id" class="w-full text-sm border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                            @foreach($resumes as $resume)
+                                <option value="{{ $resume->id }}" {{ $resume->is_default ? 'selected' : '' }}>
+                                    Resume v{{ $resume->version }} {{ $resume->is_default ? '(Default)' : '' }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                @else
+                    <div class="mb-3 bg-red-50 text-red-700 text-xs p-2 rounded">
+                        Please <a href="{{ route('student.profile.edit') }}" class="underline font-bold">upload a resume</a> in your profile before applying.
+                    </div>
+                @endif
+
+                <button type="submit" class="w-full bg-slate-800 hover:bg-slate-900 text-white font-medium py-2 rounded shadow transition" @if($resumes->count() === 0) disabled @endif>Apply Now</button>
             </form>
         </div>
         @empty

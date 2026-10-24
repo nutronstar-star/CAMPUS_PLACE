@@ -18,7 +18,8 @@ class JobController extends Controller
                   ->where('approval_status', 'approved');
         })->where('status', 'active')->latest()->paginate(10);
 
-        return view('student.jobs.index', compact('jobs', 'student'));
+        $resumes = \App\Models\ResumeVersion::where('student_id', $student->id)->orderByDesc('version')->get();
+        return view('student.jobs.index', compact('jobs', 'student', 'resumes'));
     }
 
     public function apply(Request $request, Job $job)
@@ -67,16 +68,30 @@ class JobController extends Controller
             'status' => 'applied'
         ]);
 
-        // FIX: attach the student's default resume to this application
-        $defaultResume = ResumeVersion::where('student_id', $student->id)
-            ->where('is_default', true)
-            ->first();
+        // 1. Determine which resume to attach
+        $request->validate(['resume_id' => 'nullable|exists:resume_versions,id']);
+        $resumeToUse = null;
 
-        if ($defaultResume) {
+        if ($request->filled('resume_id')) {
+            // Find the specific resume selected by the student
+            $resumeToUse = ResumeVersion::where('id', $request->resume_id)
+                ->where('student_id', $student->id)
+                ->first();
+        }
+
+        // 2. Fallback to default resume if none selected
+        if (!$resumeToUse) {
+            $resumeToUse = ResumeVersion::where('student_id', $student->id)
+                ->where('is_default', true)
+                ->first();
+        }
+
+        // 3. Attach resume
+        if ($resumeToUse) {
             DB::table('application_resumes')->insert([
                 'application_id' => $application->id,
-                'resume_url' => $defaultResume->resume_url,
-                'resume_version' => $defaultResume->version,
+                'resume_url' => $resumeToUse->resume_url,
+                'resume_version' => $resumeToUse->version,
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
