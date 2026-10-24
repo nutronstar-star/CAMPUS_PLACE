@@ -43,5 +43,5 @@ RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache /var/www/ht
 
 EXPOSE 80
 
-# Run migrations and start Apache
-CMD php artisan migrate --force && apache2-foreground
+# THE FIX: Clear all caches before running migrations and starting Apache
+CMD php artisan optimize:clear && php artisan migrate --force && apache2-foreground
