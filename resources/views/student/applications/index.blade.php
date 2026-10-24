@@ -26,6 +26,15 @@
                     <div class="text-sm text-gray-600 space-y-1 mb-6">
                         <p><strong>Package:</strong> ?{{ number_format($offer->package) }} / annum</p>
                         <p><strong>Deadline:</strong> {{ \Carbon\Carbon::parse($offer->acceptance_deadline)->format('d M Y') }}</p>
+                        
+                        @if($offer->offer_letter_url)
+                            <div class="mt-3">
+                                <a href="{{ asset('storage/' . $offer->offer_letter_url) }}" target="_blank" class="inline-flex items-center gap-1 bg-blue-100 text-blue-700 px-3 py-1.5 rounded hover:bg-blue-200 transition font-medium text-xs">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                    View Offer Letter (PDF)
+                                </a>
+                            </div>
+                        @endif
                     </div>
 
                     <div class="flex space-x-3">

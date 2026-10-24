@@ -34,4 +34,4 @@ RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cac
 RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public
 
 EXPOSE 80
-CMD php artisan optimize:clear && php artisan migrate --force && apache2-foreground
+CMD php artisan optimize:clear && php artisan migrate --force && (php artisan storage:link || true) && apache2-foreground
