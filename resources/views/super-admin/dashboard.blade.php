@@ -7,7 +7,7 @@
     </div>
 
     <!-- Stats Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         <!-- Colleges -->
         <div class="bg-white rounded-lg shadow p-6 border-l-4 border-indigo-500">
             <p class="text-sm text-gray-500 font-medium">Total Colleges</p>

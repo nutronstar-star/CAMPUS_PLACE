@@ -22,7 +22,7 @@
 
     <!-- Table -->
     <div class="bg-white shadow rounded-lg overflow-hidden">
-        <table class="w-full text-left border-collapse">
+        <div class="overflow-x-auto w-full pb-4"><table class="w-full text-left border-collapse">
             <thead>
                 <tr class="bg-gray-50 border-b text-sm text-gray-600 uppercase tracking-wider">
                     <th class="p-4 font-semibold">Company Name</th>
@@ -76,7 +76,7 @@
                 </tr>
                 @endforelse
             </tbody>
-        </table>
+        </table></div>
     </div>
     
     <div class="mt-4">

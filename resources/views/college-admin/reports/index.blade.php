@@ -70,7 +70,7 @@
             <div class="px-6 py-4 border-b bg-gray-50">
                 <h2 class="font-bold text-gray-800">Department-wise Placement</h2>
             </div>
-            <table class="w-full text-left border-collapse text-sm">
+            <div class="overflow-x-auto w-full pb-4"><table class="w-full text-left border-collapse text-sm">
                 <thead class="bg-gray-50 border-b text-gray-600 uppercase tracking-wider">
                     <tr>
                         <th class="p-3 font-semibold">Department</th>
@@ -95,14 +95,14 @@
                         <tr><td colspan="4" class="p-6 text-center text-gray-500">No departments</td></tr>
                     @endforelse
                 </tbody>
-            </table>
+            </table></div>
         </div>
 
         <div class="bg-white shadow-sm rounded-lg overflow-hidden border border-gray-200">
             <div class="px-6 py-4 border-b bg-gray-50">
                 <h2 class="font-bold text-gray-800">Company-wise Hiring</h2>
             </div>
-            <table class="w-full text-left border-collapse text-sm">
+            <div class="overflow-x-auto w-full pb-4"><table class="w-full text-left border-collapse text-sm">
                 <thead class="bg-gray-50 border-b text-gray-600 uppercase tracking-wider">
                     <tr>
                         <th class="p-3 font-semibold">Company</th>
@@ -121,7 +121,7 @@
                         <tr><td colspan="3" class="p-6 text-center text-gray-500">No hiring yet</td></tr>
                     @endforelse
                 </tbody>
-            </table>
+            </table></div>
         </div>
     </div>
 
@@ -131,7 +131,7 @@
             <h2 class="font-bold text-gray-800">Placement Records</h2>
             <span class="text-xs text-gray-500">{{ $placements->count() }} record{{ $placements->count() === 1 ? '' : 's' }}</span>
         </div>
-        <table class="w-full text-left border-collapse text-sm">
+        <div class="overflow-x-auto w-full pb-4"><table class="w-full text-left border-collapse text-sm">
             <thead class="bg-gray-50 border-b text-gray-600 uppercase tracking-wider">
                 <tr>
                     <th class="p-3 font-semibold">Student</th>
@@ -163,6 +163,6 @@
                     </tr>
                 @endforelse
             </tbody>
-        </table>
+        </table></div>
     </div>
 @endsection

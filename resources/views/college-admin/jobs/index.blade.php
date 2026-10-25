@@ -12,7 +12,7 @@
     @endif
 
     <div class="bg-white shadow-sm rounded-lg overflow-hidden border border-gray-200">
-        <table class="w-full text-left border-collapse">
+        <div class="overflow-x-auto w-full pb-4"><table class="w-full text-left border-collapse">
             <thead>
                 <tr class="bg-gray-50 border-b text-sm text-gray-600 uppercase tracking-wider">
                     <th class="p-4 font-semibold">Company & Job</th>
@@ -64,6 +64,6 @@
                 <tr><td colspan="5" class="p-8 text-center text-gray-500">No jobs posted for your college yet.</td></tr>
                 @endforelse
             </tbody>
-        </table>
+        </table></div>
     </div>
 @endsection

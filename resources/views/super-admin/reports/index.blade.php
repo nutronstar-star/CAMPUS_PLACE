@@ -26,7 +26,7 @@
         <div class="px-6 py-4 border-b border-gray-200 bg-gray-50">
             <h2 class="text-lg font-bold text-gray-800">State-Wise Breakdown</h2>
         </div>
-        <table class="w-full text-left border-collapse">
+        <div class="overflow-x-auto w-full pb-4"><table class="w-full text-left border-collapse">
             <thead>
                 <tr class="bg-white border-b text-sm text-gray-600 uppercase tracking-wider">
                     <th class="p-4 font-semibold">State</th>
@@ -49,7 +49,7 @@
                 </tr>
                 @endforeach
             </tbody>
-        </table>
+        </table></div>
     </div>
     
     <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">

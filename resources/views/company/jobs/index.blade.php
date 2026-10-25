@@ -10,7 +10,7 @@
     @endif
 
     <div class="bg-white shadow-sm rounded-lg overflow-hidden border border-gray-200">
-        <table class="w-full text-left border-collapse">
+        <div class="overflow-x-auto w-full pb-4"><table class="w-full text-left border-collapse">
             <thead>
                 <tr class="bg-gray-50 border-b text-sm text-gray-600 uppercase tracking-wider">
                     <th class="p-4 font-semibold">Job Title</th>
@@ -35,7 +35,7 @@
                 <tr><td colspan="5" class="p-8 text-center text-gray-500">You haven't posted any jobs yet.</td></tr>
                 @endforelse
             </tbody>
-        </table>
+        </table></div>
     </div>
     <div class="mt-4">{{ $jobs->links() }}</div>
 @endsection

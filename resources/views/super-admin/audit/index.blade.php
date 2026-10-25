@@ -41,7 +41,7 @@
             <h2 class="text-lg font-bold text-gray-800">Recent Login Attempts</h2>
             <span class="text-xs text-gray-500">{{ $loginAttempts->total() }} record{{ $loginAttempts->total() === 1 ? '' : 's' }}</span>
         </div>
-        <table class="w-full text-left border-collapse">
+        <div class="overflow-x-auto w-full pb-4"><table class="w-full text-left border-collapse">
             <thead>
                 <tr class="bg-white border-b text-sm text-gray-600 uppercase tracking-wider">
                     <th class="p-4 font-semibold">Time</th>
@@ -70,7 +70,7 @@
                     <tr><td colspan="4" class="p-8 text-center text-gray-500">No login attempts recorded yet.</td></tr>
                 @endforelse
             </tbody>
-        </table>
+        </table></div>
     </div>
     <div class="mb-8">{{ $loginAttempts->links() }}</div>
 
@@ -81,7 +81,7 @@
         <div class="px-6 py-4 border-b border-gray-200 bg-gray-50">
             <h2 class="text-lg font-bold text-gray-800">System Actions</h2>
         </div>
-        <table class="w-full text-left border-collapse">
+        <div class="overflow-x-auto w-full pb-4"><table class="w-full text-left border-collapse">
             <thead>
                 <tr class="bg-white border-b text-sm text-gray-600 uppercase tracking-wider">
                     <th class="p-4 font-semibold">Time</th>
@@ -106,7 +106,7 @@
                     <tr><td colspan="5" class="p-8 text-center text-gray-500">No audit logs found.</td></tr>
                 @endforelse
             </tbody>
-        </table>
+        </table></div>
     </div>
     <div class="mt-4">{{ $logs->links() }}</div>
 @endsection

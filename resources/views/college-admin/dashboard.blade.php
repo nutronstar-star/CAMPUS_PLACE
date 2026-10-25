@@ -5,7 +5,7 @@
         <p class="text-gray-500">Manage your campus placements and approve company job postings.</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-6 border-l-4 border-sky-500">
             <p class="text-sm text-gray-500 font-medium">Total Students</p>
             <p class="text-3xl font-bold text-gray-800">{{ $stats['total_students'] }}</p>

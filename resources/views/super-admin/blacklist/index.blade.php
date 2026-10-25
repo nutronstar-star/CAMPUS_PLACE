@@ -27,14 +27,14 @@
             </div>
             <!-- List -->
             <div class="border-t">
-                <table class="w-full text-left text-sm">
+                <div class="overflow-x-auto w-full pb-4"><table class="w-full text-left text-sm">
                     <thead class="bg-gray-50"><tr><th class="p-3">College</th><th class="p-3">Reason</th></tr></thead>
                     <tbody class="divide-y">
                         @foreach($blacklistedColleges as $bl)
                             <tr><td class="p-3 font-medium">{{ $bl->college->name }}</td><td class="p-3 text-red-600">{{ $bl->reason }}</td></tr>
                         @endforeach
                     </tbody>
-                </table>
+                </table></div>
             </div>
         </div>
 
@@ -56,14 +56,14 @@
             </div>
             <!-- List -->
             <div class="border-t">
-                <table class="w-full text-left text-sm">
+                <div class="overflow-x-auto w-full pb-4"><table class="w-full text-left text-sm">
                     <thead class="bg-gray-50"><tr><th class="p-3">Company</th><th class="p-3">Reason</th></tr></thead>
                     <tbody class="divide-y">
                         @foreach($blacklistedCompanies as $bl)
                             <tr><td class="p-3 font-medium">{{ $bl->company->name }}</td><td class="p-3 text-red-600">{{ $bl->reason }}</td></tr>
                         @endforeach
                     </tbody>
-                </table>
+                </table></div>
             </div>
         </div>
     </div>

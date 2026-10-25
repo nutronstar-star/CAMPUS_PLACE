@@ -6,7 +6,7 @@
         <p class="text-gray-500">{{ $student->college->name }} | CGPA: {{ $student->cgpa }} | Backlogs: {{ $student->backlogs }}</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-6 border-l-4 border-blue-500">
             <p class="text-sm text-gray-500 font-medium">Total Applications</p>
             <p class="text-3xl font-bold text-gray-800">{{ $stats['total_applications'] }}</p>

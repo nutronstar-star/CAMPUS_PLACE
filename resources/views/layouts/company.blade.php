@@ -2,84 +2,111 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>CampusPlace - @yield('title', 'Panel')</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        [x-cloak] { display: none !important; }
+        /* Prevent body from scrolling horizontally */
+        body { overflow-x: hidden; }
+    </style>
 </head>
-<body class="bg-gray-100 font-sans antialiased">
+<body class="bg-slate-50 font-sans antialiased text-gray-800" x-data="{ sidebarOpen: false }">
     
-    <!-- Alpine state for mobile sidebar -->
-    <div x-data="{ sidebarOpen: false }" class="flex h-screen overflow-hidden">
-        
-        <!-- Mobile Overlay (closes sidebar when clicked) -->
-        <div x-show="sidebarOpen" @click="sidebarOpen = false" class="fixed inset-0 z-20 bg-black opacity-50 md:hidden" x-cloak></div>
+    <!-- Mobile Backdrop Overlay -->
+    <div x-show="sidebarOpen" 
+         x-transition:enter="transition-opacity ease-linear duration-300" 
+         x-transition:enter-start="opacity-0" 
+         x-transition:enter-end="opacity-100" 
+         x-transition:leave="transition-opacity ease-linear duration-300" 
+         x-transition:leave-start="opacity-100" 
+         x-transition:leave-end="opacity-0" 
+         @click="sidebarOpen = false" 
+         class="fixed inset-0 z-20 bg-slate-900/60 backdrop-blur-sm md:hidden" 
+         x-cloak></div>
 
-        <!-- Sidebar (Hidden on mobile, slides in when toggled) -->
+    <div class="flex h-screen overflow-hidden">
+        
+        <!-- Sidebar (Hidden on mobile, fixed on desktop) -->
         <aside :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'" 
-               class="fixed inset-y-0 left-0 z-30 w-64 bg-slate-900 text-white transition-transform duration-300 transform md:relative md:translate-x-0 flex flex-col">
+               class="fixed inset-y-0 left-0 z-30 w-64 bg-slate-900 text-white transition-transform duration-300 transform md:relative md:translate-x-0 flex flex-col shadow-2xl md:shadow-none" 
+               x-cloak>
             
-            <div class="h-16 flex items-center px-6 border-b border-slate-800">
-                <span class="text-xl font-bold text-indigo-400">CampusPlace</span>
-                <span class="ml-2 text-xs bg-indigo-900 text-indigo-200 px-2 py-1 rounded">Company</span>
+            <!-- Sidebar Header (Logo) -->
+            <div class="h-16 flex items-center px-6 border-b border-slate-800 bg-slate-900">
+                <a href="/" class="flex items-center gap-2">
+                    <img src="{{ asset('images/campusplace-icon.svg') }}" alt="" class="h-8 w-8">
+                    <span class="text-xl font-bold text-white tracking-wide">Campus<span class="text-sky-400">Place</span></span>
+                    <span class="ml-2 text-[10px] uppercase tracking-wider font-bold bg-slate-800 text-slate-300 px-2 py-0.5 rounded border border-slate-700">Company</span>
+                </a>
             </div>
             
-            <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
-                    <a href="{{ route('company.dashboard') }}" class="block px-4 py-2 {{ request()->routeIs('company.dashboard') ? 'bg-orange-600 text-white' : 'hover:bg-slate-800 text-gray-300' }} rounded font-medium">Dashboard</a>
-    <a href="{{ route('company.jobs.index') }}" class="block px-4 py-2 {{ request()->routeIs('company.jobs.index') ? 'bg-orange-600 text-white' : 'hover:bg-slate-800 text-gray-300' }} rounded font-medium">My Jobs</a>
-    <a href="{{ route('company.jobs.create') }}" class="block px-4 py-2 {{ request()->routeIs('company.jobs.create') ? 'bg-orange-600 text-white' : 'hover:bg-slate-800 text-gray-300' }} rounded font-medium">Post a Job</a>
+            <!-- Sidebar Navigation Links -->
+            <nav class="flex-1 px-4 py-6 space-y-1.5 overflow-y-auto">
+                    <a href="{{ route('company.dashboard') }}" class="block px-4 py-2.5 {{ request()->routeIs('company.dashboard') ? 'bg-orange-600 text-white shadow-md' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }} rounded-lg font-medium transition-all">Dashboard</a>
+    <a href="{{ route('company.jobs.index') }}" class="block px-4 py-2.5 {{ request()->routeIs('company.jobs.index') ? 'bg-orange-600 text-white shadow-md' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }} rounded-lg font-medium transition-all">My Jobs</a>
+    <a href="{{ route('company.jobs.create') }}" class="block px-4 py-2.5 {{ request()->routeIs('company.jobs.create') ? 'bg-orange-600 text-white shadow-md' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }} rounded-lg font-medium transition-all">Post a Job</a>
             </nav>
             
-            <div class="p-4 border-t border-slate-800">
+            <!-- Sidebar Footer (Logout) -->
+            <div class="p-4 border-t border-slate-800 bg-slate-900">
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <button type="submit" class="w-full text-left px-4 py-2 text-red-400 hover:bg-slate-800 rounded font-medium transition">Logout</button>
+                    <button type="submit" class="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-red-400 bg-red-400/10 hover:bg-red-400/20 rounded-lg font-medium transition">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                        Logout
+                    </button>
                 </form>
             </div>
         </aside>
 
         <!-- Main Content Area -->
-        <div class="flex-1 flex flex-col overflow-hidden w-full">
+        <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
             
             <!-- Top Header -->
-            <header class="h-16 bg-white border-b flex items-center justify-between px-4 md:px-8">
+            <header class="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-4 md:px-8 z-10 shadow-sm">
                 <div class="flex items-center">
                     <!-- Hamburger Menu (Mobile Only) -->
-                    <button @click="sidebarOpen = true" class="md:hidden text-gray-500 hover:text-gray-700 focus:outline-none mr-4">
+                    <button @click="sidebarOpen = true" class="md:hidden text-gray-500 hover:text-gray-700 focus:outline-none mr-4 p-2 rounded-md hover:bg-gray-100">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
-                    <h2 class="text-lg md:text-xl font-semibold text-gray-800 truncate">@yield('header_title', 'Dashboard')</h2>
+                    <h2 class="text-lg md:text-xl font-bold text-gray-800 truncate">@yield('header_title', 'Dashboard')</h2>
                 </div>
                 
-                <div class="flex items-center space-x-4">
-                    <span class="hidden md:inline text-sm text-gray-600">Logged in as: <strong>{{ auth()->user()->name }}</strong></span>
-                    <div class="h-8 w-8 bg-indigo-100 text-indigo-700 rounded-full flex items-center justify-center font-bold">
+                <div class="flex items-center space-x-3">
+                    <span class="hidden md:inline text-sm text-gray-500 font-medium">Logged in as: <strong class="text-gray-800">{{ auth()->user()->name }}</strong></span>
+                    <div class="h-9 w-9 bg-sky-100 text-sky-700 border border-sky-200 rounded-full flex items-center justify-center font-bold shadow-sm">
                         {{ substr(auth()->user()->name, 0, 1) }}
                     </div>
                 </div>
             </header>
 
-            <!-- Main Content Page -->
+            <!-- Main Page Content -->
             <main class="flex-1 overflow-y-auto p-4 md:p-8">
+                
+                <!-- Flash Messages -->
                 @if(session('success'))
-                    <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-6 shadow-sm">{{ session('success') }}</div>
+                    <div class="bg-emerald-50 border-l-4 border-emerald-500 text-emerald-700 p-4 mb-6 shadow-sm rounded-r-lg text-sm font-medium flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        {{ session('success') }}
+                    </div>
                 @endif
                 @if(session('error'))
-                    <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6 shadow-sm">{{ session('error') }}</div>
+                    <div class="bg-rose-50 border-l-4 border-rose-500 text-rose-700 p-4 mb-6 shadow-sm rounded-r-lg text-sm font-medium flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        {{ session('error') }}
+                    </div>
                 @endif
 
-                @yield('content')
+                <!-- Content Slot -->
+                <div class="max-w-7xl mx-auto">
+                    @yield('content')
+                </div>
             </main>
         </div>
     </div>
-    
-    <style>
-        [x-cloak] { display: none !important; }
-        /* Ensure tables don't break mobile layout */
-        table { display: block; overflow-x: auto; white-space: nowrap; }
-        @media (min-width: 768px) { table { display: table; white-space: normal; } }
-    </style>
 </body>
 </html>

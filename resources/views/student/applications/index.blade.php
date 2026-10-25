@@ -58,7 +58,7 @@
     <!-- Application History Table -->
     <h2 class="text-lg font-bold text-gray-800 mb-4">Application History</h2>
     <div class="bg-white shadow-sm rounded-lg overflow-hidden border border-gray-200">
-        <table class="w-full text-left border-collapse">
+        <div class="overflow-x-auto w-full pb-4"><table class="w-full text-left border-collapse">
             <thead>
                 <tr class="bg-gray-50 border-b text-sm text-gray-600 uppercase tracking-wider">
                     <th class="p-4 font-semibold">Company & Job</th>
@@ -114,7 +114,7 @@
                 <tr><td colspan="4" class="p-8 text-center text-gray-500">You haven't applied to any jobs yet.</td></tr>
                 @endforelse
             </tbody>
-        </table>
+        </table></div>
     </div>
     <div class="mt-4">{{ $applications->links() }}</div>
 @endsection

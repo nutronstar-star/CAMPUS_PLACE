@@ -26,7 +26,7 @@
 
         <div class="bg-white rounded-lg shadow-sm border border-gray-200">
             <div class="px-6 py-4 border-b bg-gray-50"><h2 class="font-bold text-gray-800">Locally Blacklisted Companies</h2></div>
-            <table class="w-full text-left text-sm">
+            <div class="overflow-x-auto w-full pb-4"><table class="w-full text-left text-sm">
                 <thead class="bg-gray-50 border-b"><tr><th class="p-3">Company</th><th class="p-3">Reason</th></tr></thead>
                 <tbody class="divide-y">
                     @forelse($blacklisted as $bl)
@@ -35,7 +35,7 @@
                         <tr><td colspan="2" class="p-4 text-center text-gray-500">No companies blacklisted.</td></tr>
                     @endforelse
                 </tbody>
-            </table>
+            </table></div>
         </div>
     </div>
 @endsection
